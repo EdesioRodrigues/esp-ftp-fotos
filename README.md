@@ -7,7 +7,7 @@ Este projeto permite que um módulo **ESP32-CAM** capture fotos automaticamente 
 ### 🔧 Funcionalidades
 
 * Captura de imagens automaticamente em horários definidos.
-* Armazenamento local no cartão SD.
+* Envio via FTP, podendo ser alterado para endpoints ou emails.
 * Ajuste fácil de horários via código.
 * Código limpo e comentado, ideal para aprendizado e personalização.
 
@@ -19,19 +19,13 @@ Este projeto permite que um módulo **ESP32-CAM** capture fotos automaticamente 
 * Módulo de cartão microSD (já incluso em alguns modelos ESP32-CAM).
 * Fonte 5V com no mínimo 1A.
 * Arduino IDE ou PlatformIO.
-* Biblioteca `esp_camera` já incluída na ESP32 board.
 
 ### 🧠 Como Funciona
 
-* O relógio do sistema é obtido via RTC interno ou NTP (dependendo da versão).
+* O relógio do sistema é obtido via NTP.
 * Um loop verifica a hora atual.
-* Se a hora corresponder à programação, a foto é tirada e salva no SD.
+* Se a hora corresponder à programação, a foto é tirada e enviada.
 * A imagem é nomeada com base na data e hora (`foto_YYYYMMDD_HHMMSS.jpg`).
-
-### ❗️Atenção
-
-* Se o ESP32 reiniciar inesperadamente, verifique se a fonte tem corrente suficiente.
-* Para projetos mais avançados, considere usar RTC externo (ex: DS3231) para maior precisão.
 
 ---
 
